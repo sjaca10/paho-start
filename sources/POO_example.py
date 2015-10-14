@@ -17,7 +17,7 @@ class CompanyClient(mqtt.Client):
 
 client = CompanyClient()
 
-client.connect("45.55.210.26", 1883, 60)
+client.connect("localhost", 1883, 60)
 
 client.publish("hello/company", payload = "Hello everybody from POO!", qos = 0, retain = False)
 

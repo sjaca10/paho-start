@@ -2,10 +2,10 @@ import paho.mqtt.client as mqtt
 
 def on_connect(client, userdata, rc):
 	print("Connected with result code " + str(rc))
-	client.subscribe("hello/kliento")
+	client.subscribe("hello/company")
 
 def on_disconnect(client, userdata, rc):
-	client.unsubscribe("hello/kliento")
+	client.unsubscribe("hello/company")
 	if rc != 0:
 		print("Unexpected disconnection [" + str(rc) + "]")
 	else:
@@ -37,6 +37,6 @@ client.on_publish = on_publish
 client.on_log = on_log
 
 client.connect("45.55.210.26", 1883, 60)
-client.publish("hello/kliento", payload = "Hello everybody from procedural!", qos = 0, retain = False)
+client.publish("hello/company", payload = "Hello everybody from procedural!", qos = 0, retain = False)
 client.loop_forever()
 client.disconnect()
